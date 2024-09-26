@@ -4,6 +4,8 @@ FROM wordpress
 # 작업 디렉토리 설정
 WORKDIR /app
 
+COPY . /var/www/html
+
 # 포트 노출
 EXPOSE 80
 
