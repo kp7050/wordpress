@@ -17,8 +17,8 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       # Docker 이미지 빌드 - Push 명령어 #2
-      #- docker-compose -f docker-compose.yml build
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      - docker-compose -f docker-compose.yml build
+      #- docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
       # Docker 이미지 태그 지정(latest) - Push 명령어 #3
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG 
   post_build:
