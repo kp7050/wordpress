@@ -1,11 +1,11 @@
 # buildspec.yml
-version: 0.2
+version: 3
 env:
   variables:
     AWS_DEFAULT_REGION: "us-east-2"
     AWS_ACCOUNT_ID: "767397840976"
     IMAGE_REPO_NAME: "wordpress"
-    IMAGE_TAG: "lastest"
+    IMAGE_TAG: "latest"
 phases:
   pre_build: 
     commands:
