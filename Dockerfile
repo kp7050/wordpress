@@ -1,5 +1,5 @@
 # 베이스 이미지 선택
-FROM wordpress:latest
+FROM wordpress
 
 # 작업 디렉토리 설정
 # WORKDIR /app
@@ -10,4 +10,4 @@ COPY . /var/www/html
 EXPOSE 80
 
 # 컨테이너 실행 시 실행될 명령
-CMD ["npm", "start"]
+CMD ["apache2-foreground"]
