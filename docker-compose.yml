@@ -3,6 +3,7 @@ services:
   wordpress:
     build:
       context: .
+    image: ${IMAGE_REPO_NAME}:${IMAGE_TAG}
     environment:
       WORDPRESS_DB_HOST: 'database-1-instance-1.czsu0y4s8anw.us-east-2.rds.amazonaws.com'
       WORDPRESS_DB_USER: 'admin'
