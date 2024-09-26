@@ -18,7 +18,6 @@ phases:
       - echo Building the Docker image...          
       # Docker 이미지 빌드 - Push 명령어 #2
       - docker-compose -f docker-compose.yml build
-      - echo Built images:
       - docker images
       #- docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
       # Docker 이미지 태그 지정(latest) - Push 명령어 #3
