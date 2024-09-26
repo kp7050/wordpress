@@ -1,0 +1,28 @@
+# buildspec.yml
+version: 0.2
+env:
+  variables:
+    AWS_DEFAULT_REGION: "us-east-2"
+    AWS_ACCOUNT_ID: "767397840976"
+    IMAGE_REPO_NAME: "wordpress-test"
+    IMAGE_TAG: "lateast"
+phases:
+  pre_build: 
+    commands:
+      - echo Logging in to Amazon ECR...
+      # ECR 정보 등록 - Push 명령어 #1
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...          
+      # Docker 이미지 빌드 - Push 명령어 #2
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+      # Docker 이미지 태그 지정(latest) - Push 명령어 #3
+      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG 
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      # Docker 이미지 푸시 - Push 명령어 #4
+      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
