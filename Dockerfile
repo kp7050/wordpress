@@ -5,7 +5,6 @@ FROM wordpress
 WORKDIR /app
 
 # 애플리케이션 종속성 설치
-COPY package.json package-lock.json /app/
 RUN npm install
 
 # 애플리케이션 파일 추가
