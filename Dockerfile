@@ -1,8 +1,8 @@
 # 베이스 이미지 선택
-FROM wordpress
+FROM wordpress:latest
 
 # 작업 디렉토리 설정
-WORKDIR /app
+# WORKDIR /app
 
 COPY . /var/www/html
 
