@@ -12,7 +12,7 @@ RUN npm install
 COPY . /app/
 
 # 포트 노출
-EXPOSE 3000
+EXPOSE 80
 
 # 컨테이너 실행 시 실행될 명령
 CMD ["npm", "start"]
