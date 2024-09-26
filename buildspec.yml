@@ -4,7 +4,7 @@ env:
   variables:
     AWS_DEFAULT_REGION: "us-east-2"
     AWS_ACCOUNT_ID: "767397840976"
-    IMAGE_REPO_NAME: "wordpress"
+    IMAGE_REPO_NAME: "jyw-wordpress"
     IMAGE_TAG: "latest"
 phases:
   pre_build: 
